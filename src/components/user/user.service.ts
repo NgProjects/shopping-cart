@@ -18,7 +18,7 @@ export class UserService {
      * @returns 
      */
     async findUserByEmail(email: string): Promise<User | undefined> {
-        return await this.userRepository.findOne({ where: { emailAddress: email } });
+        return await this.userRepository.findOne({ where: { emailAddress: email , deleted : false} });
     }
 
     /**

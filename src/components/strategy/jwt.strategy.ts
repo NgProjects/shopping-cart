@@ -1,9 +1,10 @@
-import { UnauthorizedException } from "@nestjs/common";
+import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { PassportStrategy } from "@nestjs/passport";
 import { ExtractJwt, Strategy, VerifiedCallback } from "passport-jwt";
 import { UserService } from "../user/user.service";
 
+@Injectable()
 export class JWTStrategy extends PassportStrategy(Strategy) {
 
     constructor(private readonly configService: ConfigService, 
@@ -11,7 +12,7 @@ export class JWTStrategy extends PassportStrategy(Strategy) {
             super({
                 jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
                 ignoreExpiration: false,
-                secretOrKey: ''
+                secretOrKey: configService.get('JWT_SECRET')
             });
     }
 
@@ -20,7 +21,7 @@ export class JWTStrategy extends PassportStrategy(Strategy) {
         if (!user) {
             return done(new UnauthorizedException({ message: 'User is not recognised' }), false);
         }
-
+        
         return done(null, user);
     }
 }

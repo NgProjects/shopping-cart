@@ -15,8 +15,7 @@ export class AuthController {
     @ApiOperation({ description: 'Handle user login and return authorization token' })
     @ApiResponse({
         status: 200,
-        description: 'Login',
-        type: 'string',
+        description: 'Login Response',
         isArray: true,
     })
     @Post('login')

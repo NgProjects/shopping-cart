@@ -4,7 +4,7 @@ import { IsString } from "class-validator";
 export class CreateUserDto {
     
     @ApiProperty({
-        example: 'Users password',
+        example: 'password',
         type: String,
         required: true,
     })
@@ -12,7 +12,7 @@ export class CreateUserDto {
     readonly password: string;
     
     @ApiProperty({
-        example: 'User email',
+        example: 'test2@email.com',
         type: String,
         required: true,
     })
@@ -20,7 +20,7 @@ export class CreateUserDto {
     readonly email: string;
     
     @ApiProperty({
-        example: 'Phone number',
+        example: '+23466376467677',
         type: String,
         required: true,
     })
@@ -28,7 +28,7 @@ export class CreateUserDto {
     phoneNumber: string;
     
     @ApiProperty({
-        example: 'Full Name',
+        example: 'Firstname Lastname',
         type: String,
         required: true,
     })

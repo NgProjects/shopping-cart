@@ -13,6 +13,9 @@ class EnvironmentVariables {
   @IsString()
   JWT_EXPIRY_TIME: string;
   
+  @IsString()
+  SWAGGER_URL: string;
+
 }
 
 export function validate(config: Record<string, unknown>) {

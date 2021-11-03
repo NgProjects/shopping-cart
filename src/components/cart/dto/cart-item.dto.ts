@@ -1,4 +1,4 @@
-import { ProductDto } from "src/components/product/dto/product.dto";
+import { ProductDto } from "../../../components/product/dto/product.dto";
 
 export class CartItemDto{
 

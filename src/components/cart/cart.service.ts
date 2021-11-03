@@ -16,14 +16,14 @@ export class CartService {
 
     constructor(
         private readonly productService: ProductService,
-        @InjectRepository(Cart) private cartRepository: CartRepository,
+        @InjectRepository(CartRepository) private cartRepository: CartRepository,
         private readonly cartMapper : CartMapper
     ) {}
 
     /**
      * 
-     * @param body 
-     * @param user 
+     * @param requestBody 
+     * @param user
      */
   async addToCart(requestBody: AddToCartRequest, user: User): Promise<CartListDto> {
 
@@ -50,7 +50,12 @@ export class CartService {
 
       return this.getAllCartItems(user);
   }
-    
+  
+  /**
+   * 
+   * @param user
+   * @returns 
+   */
   async getAllCartItems(user: User): Promise<CartListDto> {
 
         var totalAmount : number = 0;
@@ -58,7 +63,7 @@ export class CartService {
 
         const cartListResult = new CartListDto();
 
-        const cartForUser = await this.cartRepository.find({ 
+        const cartForUser : Cart[] = await this.cartRepository.find({ 
             where: { user: user.id , deleted : false}, 
             relations: ['product']
         });
@@ -75,7 +80,13 @@ export class CartService {
         return cartListResult;
   }
 
-  async removeCartItem(user: any, cartId: number): Promise<CartListDto> {
+  /**
+   * 
+   * @param user
+   * @param cartId 
+   * @returns 
+   */
+  async removeCartItem(user: User, cartId: number): Promise<CartListDto> {
       const cartItem : Cart = await this.getCartItemByIdAndUser(cartId,user.id);
       if(!cartItem){
         throw new ApiError('Cart item does not exist', HttpStatus.BAD_REQUEST);;
@@ -87,6 +98,13 @@ export class CartService {
       return this.getAllCartItems(user);
   }
 
+  /**
+   * 
+   * @param user
+   * @param cartId - cart id to update
+   * @param productCount - count of product to update cart with
+   * @returns 
+   */
   async updateProductCount(user: any, cartId: number, productCount: CartItemCountUpdateDto): Promise<CartListDto> {
 
     const cartItem : Cart = await this.getCartItemByIdAndUser(cartId,user.id); 
@@ -100,8 +118,14 @@ export class CartService {
     return this.getAllCartItems(user);
   }
 
+  /**
+   * 
+   * @param cartId 
+   * @param userId - user id
+   * @returns 
+   */
   async getCartItemByIdAndUser(cartId: number, userId: number): Promise<Cart> {
-    //query with user to be sure this user are deleting from their own cart
+    //query with user to be sure this user is deleting from it's own cart
     return await this.cartRepository.findOne({ where: { id: cartId , deleted : false, user : userId} });
   }
     

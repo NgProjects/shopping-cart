@@ -6,7 +6,7 @@ import { ProductRepository } from './product.repository';
 @Injectable()
 export class ProductService {
 
-    constructor(@InjectRepository(Product) private productRepository: ProductRepository) {}
+    constructor(@InjectRepository(ProductRepository) private productRepository: ProductRepository) {}
 
     getProductById(productId: number) {
         return this.productRepository.findOne({ where: { id: productId , deleted : false} });

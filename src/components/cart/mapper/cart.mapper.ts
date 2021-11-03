@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { ProductMapper } from "src/components/product/mapper/product.mapper";
+import { ProductMapper } from "../../../components/product/mapper/product.mapper";
 import { Cart } from "../cart.entity";
 import { CartItemDto } from "../dto/cart-item.dto";
 

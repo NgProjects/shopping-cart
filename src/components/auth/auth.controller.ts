@@ -14,9 +14,8 @@ export class AuthController {
 
     @ApiOperation({ description: 'Handle user login and return authorization token' })
     @ApiResponse({
-        status: 200,
-        description: 'Login Response',
-        isArray: true,
+        status: 201,
+        description: 'Login Response'
     })
     @Post('login')
     @UseGuards(LocalAuthGuard)

@@ -1,6 +1,6 @@
-import { ProductCategory } from "src/components/product/entities/product-category.entity";
-import { Product } from "src/components/product/entities/product.entity";
-import { User } from "src/components/user/user.entity";
+import { ProductCategory } from ".././components/product/entities/product-category.entity";
+import { Product } from ".././components/product/entities/product.entity";
+import { User } from ".././components/user/user.entity";
 import {MigrationInterface, QueryRunner} from "typeorm";
 import * as bcrypt from 'bcrypt';
 

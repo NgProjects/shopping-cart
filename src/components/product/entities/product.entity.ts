@@ -1,4 +1,4 @@
-import { BaseProjectEntity } from "src/components/base/base-project.entity";
+import { BaseProjectEntity } from "../../../components/base/base-project.entity";
 import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
 import { ProductCategory } from "./product-category.entity";
 

@@ -10,14 +10,14 @@ import { ApiError } from '../errors/APIError';
 export class UserService {
 
     salt: string = bcrypt.genSaltSync(10);
-    constructor(@InjectRepository(User) private userRepository: UserRepository) {}
+    constructor(@InjectRepository(UserRepository) private userRepository: UserRepository) {}
 
     /**
      * 
      * @param email 
      * @returns 
      */
-    async findUserByEmail(email: string): Promise<User | undefined> {
+    public async findUserByEmail(email: string): Promise<User | undefined> {
         return await this.userRepository.findOne({ where: { emailAddress: email , deleted : false} });
     }
 

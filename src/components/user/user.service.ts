@@ -25,7 +25,7 @@ export class UserService {
      * 
      * @param userRequest 
      */
-    async createUser(userRequest: CreateUserDto) {
+    async createUser(userRequest: CreateUserDto) : Promise<void> {
 
         var existingUser = await this.findUserByEmail(userRequest.email);
         
@@ -40,7 +40,7 @@ export class UserService {
         newUser.phoneNumber = userRequest.phoneNumber
         newUser.fullName = userRequest.fullName
 
-        this.userRepository.save(newUser);
+        await this.userRepository.save(newUser);
     }
 
 }

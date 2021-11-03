@@ -1,5 +1,5 @@
 import { BaseProjectEntity } from "../../../components/base/base-project.entity";
-import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne } from "typeorm";
 import { ProductCategory } from "./product-category.entity";
 
 @Entity({ name: 'PRODUCT' })
@@ -23,7 +23,6 @@ export class Product extends BaseProjectEntity {
 
     @Column({
         name: 'EXPIRY_DATE',
-        type: 'timestamp',
         nullable: false
       })
     expiryDate: Date;

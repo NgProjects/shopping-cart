@@ -61,8 +61,8 @@ export class populateProducts1635719188205 implements MigrationInterface {
 
         const iphone : Product = new Product();
         iphone.name = 'Iphone';
-        iphone.description = 'Brand new Macbook pro';
-        iphone.imageUrl = 'https://macbook.png';
+        iphone.description = 'Brand new Phone 32';
+        iphone.imageUrl = 'https://iphone13.png';
         iphone.price = 10000;
         iphone.productCategory = electronicCategory;
         iphone.availableQuantity = 10;

@@ -114,7 +114,7 @@ TYPEORM_PORT=3306
  ## Running the app with docker
  Download and install docker from [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)
 
- start up docker (endure docker is up and running)
+ start up docker (ensure docker is up and running)
 
  navigate to the root folder of the application
 

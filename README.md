@@ -118,9 +118,9 @@ TYPEORM_PORT=3306
 
  navigate to the root folder of the application
 
- run ` docker compose up `
-
- app would run on port [3000](http://localhost:3000/api/)
+ run ` docker compose up ` and wait for the app to start up successfully
+ 
+ app would run on port [3000](http://localhost:3000/api/) [http://localhost:3000/api/](http://localhost:3000/api/)
 
  ## Note:
  Enable these configs

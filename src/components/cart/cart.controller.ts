@@ -12,12 +12,6 @@ import { CartItemCountUpdateDto } from "./dto/item-count-update.dto";
 @UseGuards(JwtAuthGuard)
 export class CartController {
 
-  //add to cart - create
-  //remove from cart - delete
-  //increase product quantity - update
-  //reduce product quantity - update 
-  //view all products in cart - read
-
   constructor(private readonly cartService: CartService) {}
 
   @Post('add')

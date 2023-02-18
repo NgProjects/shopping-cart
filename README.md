@@ -2,11 +2,6 @@
 
 [Shopping Cart] backend project to manage shopping cart
 
-## Product Design
-
-<!-- ![app-design](https://user-images.githubusercontent.com/33487350/140169499-e3238f6e-3dbf-4177-9145-75a7a43a1a35.jpg) -->
-<!-- ![app-design](https://user-images.githubusercontent.com/33487350/140169943-c08814f6-e1aa-460d-ba8d-6806420bf3b5.jpg) -->
-![app-design](https://user-images.githubusercontent.com/33487350/140170092-3e213c76-2331-4400-87aa-6edcf36e666d.jpg)
 ## Docs
 * http://typeorm.io/#/
 * https://docs.nestjs.com/
